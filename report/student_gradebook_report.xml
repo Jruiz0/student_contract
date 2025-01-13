@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="ir_actions_report_xml" model="ir.actions.report">
+        <field name="name">Informe de Calificaciones</field>
+        <field name="model">student.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_management.report_gradebook_document</field>
+        <field name="report_file">student_management.report_gradebook_document</field>
+        <field name="print_report_name">'Informe de Calificaciones - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_student_student"/>
+        <field name="binding_type">report</field>
+    </record>
+  
+
+    <template id="report_gradebook_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Informe de Calificaciones</h2>
+                        <p>Estudiante: <strong t-esc="doc.name"/></p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Materia</th>
+                                    <th>Calificación</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.gradebook_ids" t-as="gradebook">
+                                    <td t-esc="gradebook.subject_id.name"/>
+                                    <td t-esc="gradebook.grade_id.name"/>
+                                    <td t-esc="gradebook.grade"/>
+                                    <td t-esc="gradebook.date"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    
+</odoo>

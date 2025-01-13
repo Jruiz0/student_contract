@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="school_period_form" model="ir.ui.view">
+        <field name="name">school.period.form</field>
+        <field name="model">school.period</field>
+        <field name="arch" type="xml">
+            <form string="Period">
+                <header>
+                    <button name="action_active" type="object" string="Active" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_draft" type="object" string="Draft" class="oe_highlight" invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_period_tree" model="ir.ui.view">
+        <field name="name">school.period.tree</field>
+        <field name="model">school.period</field>
+        <field name="arch" type="xml">
+            <tree string="Period">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>    
+
+    <record id="school_period_search" model="ir.ui.view">
+        <field name="name">school.period.search</field>
+        <field name="model">school.period</field>
+        <field name="arch" type="xml">
+            <search string="Period">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </search>
+        </field>
+    </record>
+    
+    <record id="action_school_period" model="ir.actions.act_window">
+        <field name="name">Periods</field>
+        <field name="res_model">school.period</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="school_period_search"/>
+        <field name="context">{}</field>
+    </record>
+
+  
+</odoo>

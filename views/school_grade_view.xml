@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_grade_tree" model="ir.ui.view">
+        <field name="name">school.grade.tree</field>
+        <field name="model">school.grade</field>
+        <field name="arch" type="xml">
+            <tree string="Grade" editable="bottom">
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_grade_search" model="ir.ui.view">
+        <field name="name">school.grade.search</field>
+        <field name="model">school.grade</field>
+        <field name="arch" type="xml">
+            <search string="Grade">
+                <field name="name"/>
+                <field name="active"/>
+                <separator string="Some Text" colspan="4" />
+                <group name="" expand="0" string="Group By">
+                    <filter string="Active" name="active"  context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <record id="action_school_grade" model="ir.actions.act_window">
+        <field name="name">Grades</field>
+        <field name="res_model">school.grade</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="school_grade_search"/>
+        <field name="context">{}</field>
+    </record>
+</odoo>

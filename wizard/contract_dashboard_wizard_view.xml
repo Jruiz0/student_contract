@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="view_contract_dashboard_wizard" model="ir.ui.view">
+        <field name="name">contract.dashboard.wizard.form</field>
+        <field name="model">contract.dashboard.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Dashboard Link">
+                <group>
+                    <field name="expiration_type"/>
+                    <field name="expiration_hours" invisible="expiration_type == 'on_access'"/>
+                </group>
+                <footer>
+                    <button string="Generate Link" type="object" name="generate_link" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_contract_dashboard_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Dashboard Link</field>
+        <field name="res_model">contract.dashboard.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

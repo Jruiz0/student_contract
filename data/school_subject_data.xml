@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    
+        <record id="school_subject_1" model="school.subject">
+            <field name="name">Mathematics</field>
+            <field name="teacher_ids" eval="[(4, ref('school_teacher_1')), (4, ref('school_teacher_2')), (4, ref('school_teacher_3'))]"/>
+        </record>
+
+        <record id="school_subject_2" model="school.subject">
+            <field name="name">Physics</field>
+            <field name="teacher_ids" eval="[(4, ref('school_teacher_4')), (4, ref('school_teacher_5'))]"/>
+        </record>
+
+        <record id="school_subject_3" model="school.subject">
+            <field name="name">Chemistry</field>
+            <field name="teacher_ids" eval="[(4, ref('school_teacher_1')), (4, ref('school_teacher_2'))]"/>
+        </record>
+
+        <record id="school_subject_4" model="school.subject">
+            <field name="name">Biology</field>
+            <field name="teacher_ids" eval="[(4, ref('school_teacher_3')), (4, ref('school_teacher_4'))]"/>
+        </record>
+
+        <record id="school_subject_5" model="school.subject">
+            <field name="name">English</field>
+            <field name="teacher_ids" eval="[(4, ref('school_teacher_1')), (4, ref('school_teacher_2')), (4, ref('school_teacher_3')), (4, ref('school_teacher_4')), (4, ref('school_teacher_5'))]"/>
+        </record>
+
+    </data>
+
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_student"/>
+                 <field name="subject_ids" widget="many2many_tags" invisible="not is_student"/>
+                <field name="is_teacher"/>
+            </xpath>
+            <!-- <xpath expr="//notebook" position="inside">
+                <page string="Education" invisible="not is_teacher">
+                    <group>
+                        <field name="subject_ids" widget="many2many_tags"/>
+                    </group>
+                </page>
+              
+            </xpath> -->
+        </field>
+    </record>
+    
+    <record id="action_res_partner_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_student','=',True)]</field>
+        <field name="context">{ 'default_is_student': True }</field>
+    </record>
+
+    <record id="action_res_partner_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_teacher','=',True)]</field>
+            <field name="context">{ 'default_is_teacher': True }</field>
+    </record>
+  
+</odoo>

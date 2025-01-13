@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_control_student_contract,Access Control Student Contract,model_student_contract,group_control_school,1,1,1,1
+access_control_student_contract_line,Access Control Student Contract Line,model_student_contract_line,group_control_school,1,1,1,1
+access_control_school_subject,Access Control School Subject,model_school_subject,group_control_school,1,1,1,1
+access_control_school_period,Access Control School Period,model_school_period,group_control_school,1,1,1,1
+access_control_school_grade,Access Control School Grade,model_school_grade,group_control_school,1,1,1,1
+access_control_school_dashboard,Access Control School Dashboard,model_contract_dashboard,group_control_school,1,1,1,1
+access_control_school_dashboard_wizard,Access Control School Dashboard Wizard,model_contract_dashboard_wizard,group_control_school,1,1,1,1

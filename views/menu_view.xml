@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <menuitem id="menu_student_contract_root" name="Education"  sequence="100" groups="group_control_school">
+
+        <menuitem id="menu_student_contract" name="Contracts" action="action_student_contract"/>
+
+        <menuitem id="menu_contacts" name="Contacts" >
+        
+            <menuitem id="menu_student" name="Students" action="action_res_partner_student"/>
+            
+            <menuitem id="menu_teacher" name="Teachers" action="action_res_partner_teacher"/>
+
+        </menuitem>
+        
+        <menuitem id="menu_school_configuration" name="Configuration">
+
+            <menuitem id="menu_subject" name="Subjects" action="action_school_subject"/>
+
+            <menuitem id="menu_period" name="Periods" action="action_school_period"/>
+
+            <!-- <menuitem id="menu_grade" name="Grades" action="action_school_grade"/> -->
+            
+        </menuitem>
+    
+    </menuitem>
+</odoo>

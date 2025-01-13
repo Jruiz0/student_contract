@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="contract_dashboard_template" name="Contract Dashboard">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h1>Contract Dashboard</h1>
+                <p>List of contracts with subject details and relevant information.</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Student</th>
+                            <th colspan="2">Period</th>
+                            <th colspan="1">State</th>
+                            <th colspan="5">Contract Lines</th>
+                            <th colspan="1">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="contracts" t-as="contract">
+                            <tr>
+                                <td colspan="2"><t t-esc="contract.student_id.name"/></td>
+                                <td colspan="2"><t t-esc="contract.period_id.name"/></td>
+                                <td colspan="1"><t t-esc="contract.state"/></td>
+                                <td colspan="5">
+                                    <ul>
+                                        <t t-foreach="contract.line_ids" t-as="line">
+                                            <li>
+                                                <strong>Subject:</strong> <t t-esc="line.subject_id.name"/>
+                                                <br/>
+                                                <strong>Teacher:</strong> <t t-esc="line.teacher_id.name"/>
+                                                <br/>
+                                                <strong>Cost:</strong> <t t-esc="line.price"/> 
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </td>
+                                <td colspan="1"><t t-esc="contract.total_amount"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="contract_dashboard_not_found" name="Contract Dashboard Not Found">
+        <t t-call="website.layout">
+            <div class="container mt-5 text-center">
+                <h1>Dashboard Not Found</h1>
+                <p>The requested dashboard link is invalid or has expired.</p>
+                <a href="/" class="btn btn-primary">Return to Home</a>
+            </div>
+        </t>
+    </template>
+</odoo>
